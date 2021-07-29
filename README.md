@@ -1,5 +1,5 @@
-# Axie Infinity Status Bot
-Checks staus of axie infinity with the fan-website [Axie Zone](www.axie.zone)
+# Axie Infinity Status Discord Bot
+Discord bot that checks status of Axie Infinity and Marketplace with the fan-website [Axie Zone](www.axie.zone)
 
 
 # Installation
