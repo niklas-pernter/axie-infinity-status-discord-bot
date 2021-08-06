@@ -3,14 +3,13 @@ from discord.ext import commands
 import requests
 import json
 
-TOKEN = 'ODY5OTUzODE5MzY5NDMxMDQw.YQFtoQ.M-FDpqfploHfmKem6RmgnNb3gdo'
+TOKEN = 'your bot token comes here'
 
 client = commands.Bot(command_prefix='!')
 
 @client.event
 async def on_ready():
     print('\n We are logged in as {0.user}'.format(client))
-
 
 @client.command()
 async def status(ctx):
