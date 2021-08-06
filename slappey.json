@@ -1,7 +1,0 @@
-{
-  "name": "axie-infinity-status-bot",
-  "language": "javascript",
-  "manager": "npm",
-  "token": "your discord bot token comes here",
-  "prefix": "!"
-}
