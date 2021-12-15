@@ -27,6 +27,23 @@ async def server(ctx):
     await ctx.send(embed=embed)
 
 def repsonse_to_string(response):
+    """function to format the response to a good looking output in discord chat
+    
+    args:
+        response(dict): a dictionary of the response
+        
+        schema:
+        {
+            "status_maintenance": boolean,  # maintenance undergoing if true
+            "status_battles": int,          # -1 ok, 0 running with restrictions, 1 offline
+            "status_graphql": boolean,      # online if true 
+            "status_cloudflare": boolean    # online if true 
+        }
+        
+    returns:
+        data (dict): formatted dictionary for output
+
+    """
     data = {}
     data['status_maintenance'] = ':green_circle: No Maintenance' if not response['status_maintenance'] else ':red_circle: Maintenance undergoing'
     data['status_battles'] = get_battle_status(response['status_battles'])
@@ -35,9 +52,18 @@ def repsonse_to_string(response):
     return data
 
 def get_battle_status(status):
-    if(status == 0): return ':green_circle: Battle servers OK'
-    if(status == 1): return ':yellow_circle: Battle servers running with restrictions'
-    if(status == 2):  return ':red_circle: Battle servers offline'
+    """function to create a message from the statuscode
+    
+    args:
+        status(int): the current battlestatus of the response.
+        
+    returns 
+        (str): the formatted string for output.
+    
+    """
+    if(status == -1): return ':green_circle: Battle servers OK'
+    if(status == 0): return ':yellow_circle: Battle servers running with restrictions'
+    if(status == 1):  return ':red_circle: Battle servers offline'
     else: return ':black_circle: Undefined Status'
 
 client.run(TOKEN)
